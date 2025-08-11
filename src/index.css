@@ -1,7 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 html,
 body,
 #root {
-  @apply fixed inset-0 overflow-hidden bg-amber-50;
+  @apply fixed inset-0 overflow-hidden;
 }

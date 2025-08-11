@@ -1,16 +1,19 @@
-import { Leva, useControls } from "leva";
-import Experience from "./Experience";
+import { Leva } from 'leva'
+import { StrictMode } from 'react'
+import Experience from './components/Experience'
+import useDebug from './stores/use-debug'
 
 export default function App() {
-  const { debug } = useControls({
-    debug: import.meta.env.MODE === "development" || location.hash === "#debug",
-  });
+  const debug = useDebug(state => state.debug)
 
   return (
     <>
-      <Leva theme={{ sizes: { rootWidth: "300px" } }} />
+      <Leva hidden={!debug} theme={{ sizes: { rootWidth: '350px' } }} />
 
-      <Experience debug={debug} />
+      {/* See https://github.com/pmndrs/leva/issues/552 */}
+      <StrictMode>
+        <Experience />
+      </StrictMode>
     </>
-  );
+  )
 }
