@@ -9,7 +9,7 @@ import World from './World'
 
 export default function Experience() {
   const debug = useDebug(state => state.debug)
-  const physicsControls = useControls('phisics', { debug, paused: false }, { collapsed: true })
+  const physicsControls = useControls('physics', { debug, paused: false }, { collapsed: true })
 
   return (
     <Canvas
