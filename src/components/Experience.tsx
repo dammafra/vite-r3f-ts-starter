@@ -1,14 +1,14 @@
+import useDebug from '@hooks/use-debug'
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Physics } from '@react-three/rapier'
 import { useControls } from 'leva'
-import useDebug from '../stores/use-debug'
 import Environment from './Environment'
 import Helpers from './Helpers'
 import World from './World'
 
 export default function Experience() {
-  const debug = useDebug(state => state.debug)
+  const debug = useDebug()
   const physicsControls = useControls('physics', { debug, paused: false }, { collapsed: true })
 
   return (
