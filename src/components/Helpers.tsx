@@ -18,8 +18,8 @@ export default function Helpers() {
 
   return (
     <>
-      <gridHelper visible={grid} args={[10, 20, 'red', 'gray']} />
-      <axesHelper visible={axes} args={[20]} position-y={0.001} />
+      <axesHelper visible={axes} args={[20]} position-y={-0.001} />
+      <gridHelper visible={grid} args={[10, 20, 'red', 'gray']} position-y={-0.002} />
 
       <GizmoHelper>
         <GizmoViewport visible={gizmo} labelColor="white" />
