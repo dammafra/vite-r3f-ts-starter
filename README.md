@@ -3,7 +3,7 @@
 ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Three.js	](https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white)
+![Three.js](https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 This template provides a minimal setup to get React Three Fiber working in Vite with TailwindCSS, Rapier, HMR and some ESLint rules.
@@ -17,13 +17,13 @@ Currently, two official plugins are available:
 
 ```bash
 # Install dependencies (only the first time)
-yarn
+npm install
 
 # Run the local server at localhost:5173
-yarn dev
+npm run dev
 
 # Build for production in the dist/ directory
-yarn build
+npm run build
 ```
 
 ## Expanding the ESLint configuration
