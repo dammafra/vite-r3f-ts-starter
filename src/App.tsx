@@ -1,7 +1,7 @@
+import Experience from '@components/Experience'
 import useDebug from '@hooks/use-debug'
 import { Leva } from 'leva'
 import { StrictMode } from 'react'
-import Experience from './components/Experience'
 
 export default function App() {
   const debug = useDebug()
