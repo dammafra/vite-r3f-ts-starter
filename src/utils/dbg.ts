@@ -1,4 +1,4 @@
-export default function dbg(value: any) {
+export function dbg<T>(value: T) {
   console.log(value)
   return value
 }

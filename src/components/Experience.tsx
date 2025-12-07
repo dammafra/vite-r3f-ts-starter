@@ -1,15 +1,17 @@
-import useDebug from '@hooks/use-debug'
-import { OrbitControls } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, Helpers } from '@components/helpers'
+import { CameraControls } from '@react-three/drei'
 import { Physics } from '@react-three/rapier'
 import { useControls } from 'leva'
-import Environment from './Environment'
-import Helpers from './Helpers'
-import World from './World'
 
-export default function Experience() {
-  const debug = useDebug()
-  const physicsControls = useControls('physics', { debug, paused: false }, { collapsed: true })
+import { Environment } from './Environment'
+import { World } from './World'
+
+export function Experience() {
+  const physicsControls = useControls(
+    'physics',
+    { debug: false, paused: false },
+    { order: 1, collapsed: true },
+  )
 
   return (
     <Canvas
@@ -17,18 +19,17 @@ export default function Experience() {
       camera={{
         fov: 45,
         near: 0.1,
-        far: 200,
+        far: 100,
         position: [2, 4, 6],
       }}
     >
+      <Environment />
+      <CameraControls makeDefault />
+
       <Physics {...physicsControls}>
         <World />
+        <Helpers />
       </Physics>
-
-      <Environment />
-      <OrbitControls makeDefault />
-
-      <Helpers />
     </Canvas>
   )
 }

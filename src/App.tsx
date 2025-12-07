@@ -1,14 +1,12 @@
-import Experience from '@components/Experience'
-import useDebug from '@hooks/use-debug'
-import { Leva } from 'leva'
+import { Experience } from '@components'
+import { DoubleTapPreventer, GUI } from '@components/helpers'
 import { StrictMode } from 'react'
 
 export default function App() {
-  const debug = useDebug()
-
   return (
     <>
-      <Leva hidden={!debug} theme={{ sizes: { rootWidth: '350px' } }} />
+      <GUI />
+      <DoubleTapPreventer />
 
       <StrictMode>
         <Experience />

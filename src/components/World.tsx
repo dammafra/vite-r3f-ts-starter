@@ -1,17 +1,12 @@
 import { RigidBody } from '@react-three/rapier'
-import { useControls } from 'leva'
 
-export default function World() {
-  const { cubeColor } = useControls('world', {
-    cubeColor: { value: 'orange', label: 'cube color' },
-  })
-
+export function World() {
   return (
     <>
       <RigidBody position={[0, 1, 0]}>
         <mesh castShadow>
           <boxGeometry />
-          <meshStandardMaterial color={cubeColor} />
+          <meshStandardMaterial color="orange" />
         </mesh>
       </RigidBody>
 
