@@ -1,6 +1,8 @@
-import { Helper, SoftShadows } from '@react-three/drei'
 import { useControls } from 'leva'
-import { CameraHelper } from 'three'
+import { useEffect, useRef } from 'react'
+import type { DirectionalLight } from 'three'
+
+import { useShadowHelper } from '@hooks'
 
 export function Environment() {
   const { helpers, ambientLightIntensity, directionalLightIntensity, directionalLightPosition } =
@@ -33,30 +35,31 @@ export function Environment() {
       { collapsed: true },
     )
 
+  const lightRef = useRef<DirectionalLight>(null!)
+  const helperRef = useShadowHelper(lightRef)
+
+  useEffect(() => {
+    if (!helperRef.current) return
+    helperRef.current.visible = helpers
+  }, [helpers, helperRef])
+
   return (
     <>
+      <ambientLight intensity={ambientLightIntensity} />
       <directionalLight
+        ref={lightRef}
         castShadow
         position={directionalLightPosition}
         intensity={directionalLightIntensity}
         shadow-mapSize={[512, 512]}
-      >
-        <orthographicCamera
-          attach="shadow-camera"
-          near={1}
-          far={10}
-          top={5}
-          right={5}
-          bottom={-5}
-          left={-5}
-        >
-          {helpers && <Helper type={CameraHelper} />}
-        </orthographicCamera>
-      </directionalLight>
-
-      <ambientLight intensity={ambientLightIntensity} />
-
-      <SoftShadows samples={50} />
+        shadow-radius={5}
+        shadow-camera-near={1}
+        shadow-camera-far={10}
+        shadow-camera-top={5}
+        shadow-camera-right={5}
+        shadow-camera-bottom={-5}
+        shadow-camera-left={-5}
+      />
     </>
   )
 }
