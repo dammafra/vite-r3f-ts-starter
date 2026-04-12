@@ -3,9 +3,9 @@
 // Retrieved 2025-12-19, License - CC BY-SA 4.0
 import { useFrame, useThree } from '@react-three/fiber'
 import { useEffect, useRef, type RefObject } from 'react'
-import { CameraHelper, Light } from 'three'
+import { CameraHelper, type LightShadow } from 'three'
 
-export function useShadowHelper(ref: RefObject<Light | null>) {
+export function useShadowHelper(ref: RefObject<{ shadow: LightShadow } | null>) {
   const scene = useThree(state => state.scene)
   const helperRef = useRef<CameraHelper>(null)
 
