@@ -9,7 +9,7 @@ export function GUI() {
   return (
     <div
       className={clsx(
-        'absolute right-0 bottom-0 top-17 w-77.5 opacity-90 z-9999 overflow-scroll pointer-events-none *:pointer-events-auto',
+        'absolute right-0 bottom-0 top-15 w-83 opacity-90 z-9999 overflow-scroll pointer-events-none *:pointer-events-auto',
         { hidden: !debug },
       )}
     >
