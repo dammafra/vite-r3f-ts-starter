@@ -1,21 +1,10 @@
 import { GizmoHelper, GizmoViewport } from '@react-three/drei'
-import { useControls } from 'leva'
 import { PerfMonitor } from 'r3f-monitor'
 
-import { useDebug } from '@hooks'
+import { useHelpersControls } from '@utils'
 
 export function Helpers() {
-  const debug = useDebug()
-
-  const { grid, axes, gizmo } = useControls(
-    'helpers',
-    {
-      grid: false,
-      axes: false,
-      gizmo: debug,
-    },
-    { order: 3, collapsed: true },
-  )
+  const { axes, grid, gizmo, perf } = useHelpersControls()
 
   return (
     <>
@@ -28,7 +17,7 @@ export function Helpers() {
         </GizmoHelper>
       )}
 
-      {debug && <PerfMonitor showGraph={false} displayType="classic" />}
+      {perf && <PerfMonitor showGraph={false} displayType="classic" />}
     </>
   )
 }
