@@ -27,11 +27,7 @@ export function Canvas({ children, ...props }: CanvasProps) {
   return (
     <div
       ref={containerRef}
-      style={{
-        width: '100vw',
-        height: '100dvh',
-        overflow: 'hidden',
-      }}
+      className="w-screen h-dvh overflow-hidden pointer-events-none **:pointer-events-auto"
     >
       <R3FCanvas style={{ width: size.width, height: size.height }} {...props}>
         <InvalidateOnResize />
