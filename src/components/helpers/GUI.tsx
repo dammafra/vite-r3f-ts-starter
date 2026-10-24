@@ -12,6 +12,7 @@ export function GUI() {
     <div
       className={clsx(
         'pointer-events-none absolute top-0 right-0 bottom-0 z-9999 w-83 overflow-scroll opacity-90 *:pointer-events-auto',
+        '[&>*:first-child>*:first-child]:sticky [&>*:first-child>*:first-child]:top-0 [&>*:first-child>*:first-child]:z-999 [&>*:first-child>*:first-child]:bg-(--leva-colors-elevation3)',
         { hidden: !debug, 'top-15': perf },
       )}
     >
